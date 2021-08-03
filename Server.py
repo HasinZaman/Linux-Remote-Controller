@@ -74,7 +74,7 @@ class Server(BaseHTTPRequestHandler):
         self.wfile.write(response.encode())
         pass
 
-host = 0.0.0.0
+host = "0.0.0.0"
 '''if not exists("setting.txt"):
     #new settings
     with open("setting.txt","w") as file:
