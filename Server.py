@@ -1,5 +1,5 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
-from os.path import exists
+#from os.path import exists
 import json
 import socket
 
@@ -74,8 +74,8 @@ class Server(BaseHTTPRequestHandler):
         self.wfile.write(response.encode())
         pass
 
-host = None
-if not exists("setting.txt"):
+host = 0.0.0.0
+'''if not exists("setting.txt"):
     #new settings
     with open("setting.txt","w") as file:
         print("Insert server IP address:")
@@ -87,6 +87,6 @@ else:
     with open("setting.txt","r") as file:
         host = file.read()
         print(host)
-
+'''
 httpd = HTTPServer((host, 8080), Server)
 httpd.serve_forever()
