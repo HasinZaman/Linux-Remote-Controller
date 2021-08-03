@@ -8,28 +8,34 @@ class Server(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/':
             self.path = '/index.html'
+        file_to_open = None
         try:
-            file_to_open = open(self.path[1:],mode = "rb").read()
-            
-            self.send_response(200)
-            
-            if self.path[-3:] == "svg":
-                self.send_header('Content-type', 'image/svg+xml')
+            if exists(self.path[1:]):
+                file_to_open = open(self.path[1:],mode = "rb").read()
                 
-            elif self.path[-3:] == "gif":
-                self.send_header('Content-type', 'image/gif')
+                self.send_response(200)
                 
-            elif self.path[-4:] == "jpeg" or self.path[-3:] == "jpg":
-                self.send_header('Content-type', 'image/jpeg')
-                
-            elif self.path[-3:] == "png":
-                self.send_header('Content-type', 'image/png')
-                
-            elif self.path[-4:] == "html":
-                self.send_header('Content-type', 'text/html')
-                
-            elif self.path[-3:] == "css" or self.path[-7:-4] == "css" :
-                self.send_header('Content-type', 'text/css')
+                if self.path[-3:] == "svg":
+                    self.send_header('Content-type', 'image/svg+xml')
+                    
+                elif self.path[-3:] == "gif":
+                    self.send_header('Content-type', 'image/gif')
+                    
+                elif self.path[-4:] == "jpeg" or self.path[-3:] == "jpg":
+                    self.send_header('Content-type', 'image/jpeg')
+                    
+                elif self.path[-3:] == "png":
+                    self.send_header('Content-type', 'image/png')
+                    
+                elif self.path[-4:] == "html":
+                    self.send_header('Content-type', 'text/html')
+                    
+                elif self.path[-3:] == "css" or self.path[-7:-4] == "css" :
+                    self.send_header('Content-type', 'text/css')
+            else:
+                file_to_open = "File not found"
+                self.send_response(404)
+
             
         except:
             file_to_open = "File not found"
@@ -74,7 +80,7 @@ class Server(BaseHTTPRequestHandler):
         self.wfile.write(response.encode())
         pass
 
-host = "0.0.0.0"
+host = None
 if not exists("setting.txt"):
     #new settings
     with open("setting.txt","w") as file:
