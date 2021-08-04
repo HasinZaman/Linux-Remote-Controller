@@ -21,7 +21,7 @@ $("button#volumeDown").on("vmousedown",function(){
 	}
 })
 
-//volume up and down buttons are released
+//volume up and down buttons are release event
 $("button#volumeUp").on("vmouseup",function(){
 	volumeUpCond = false
 
