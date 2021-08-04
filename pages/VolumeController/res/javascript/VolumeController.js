@@ -3,7 +3,7 @@ volumeDownCond = false
 volume = 0
 
 //volume up and down buttons are hold
-$("button#volumeUp").on("vmousedown",function(){
+$("button#volumeUp").bind("vmousedown",function(){
 	if (!volumeDownCond)
 	{
 		volumeUpCond = true
@@ -11,7 +11,7 @@ $("button#volumeUp").on("vmousedown",function(){
 		$(this).attr("data-pressCond",1)
 	}
 })
-$("button#volumeUp").on("mousedown",function(){
+$("button#volumeUp").bind("mousedown",function(){
 	if (!volumeDownCond)
 	{
 		volumeUpCond = true
@@ -20,7 +20,7 @@ $("button#volumeUp").on("mousedown",function(){
 	}
 })
 
-$("button#volumeDown").on("vmousedown",function(){
+$("button#volumeDown").bind("vmousedown",function(){
 	if (!volumeUpCond)
 	{
 		volumeDownCond = true
@@ -28,7 +28,7 @@ $("button#volumeDown").on("vmousedown",function(){
 		$(this).attr("data-pressCond",1)
 	}
 })
-$("button#volumeDown").on("mousedown",function(){
+$("button#volumeDown").bind("mousedown",function(){
 	if (!volumeUpCond)
 	{
 		volumeDownCond = true
@@ -38,23 +38,23 @@ $("button#volumeDown").on("mousedown",function(){
 })
 
 //volume up and down buttons are released
-$("button#volumeUp").on("vmouseup",function(){
+$("button#volumeUp").bind("vmouseup",function(){
 	volumeUpCond = false
 
 	$(this).attr("data-pressCond",0)
 })
-$("button#volumeUp").on("mouseup",function(){
+$("button#volumeUp").bind("mouseup",function(){
 	volumeUpCond = false
 
 	$(this).attr("data-pressCond",0)
 })
 
-$("button#volumeDown").on("vmouseup",function(){
+$("button#volumeDown").bind("vmouseup",function(){
 	volumeDownCond = false
 
 	$(this).attr("data-pressCond",0)
 })
-$("button#volumeDown").on("mouseup",function(){
+$("button#volumeDown").bind("mouseup",function(){
 	volumeDownCond = false
 
 	$(this).attr("data-pressCond",0)
