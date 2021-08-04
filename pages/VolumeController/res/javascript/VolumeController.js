@@ -75,8 +75,8 @@ function getStateResponse(result)
 	var tmp = JSON.parse(result)
 	//console.log(result)
 
-	volume = result["volume"]
-	if(result["muted"])
+	volume = tmp["volume"]
+	if(tmp["muted"])
 	{
 		$("button#volumeMute").attr("data-pressCond",1)
 	}
