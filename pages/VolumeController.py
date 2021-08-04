@@ -1,6 +1,7 @@
 from Page import *
 import alsaaudio
-from xdo import Xdo
+import subprocess
+import time
 
 class VolumeController(Page):
 	'''
@@ -50,17 +51,11 @@ class VolumeController(Page):
 				elif data["button"] == "toggleMute":
 					self.muted = not self.muted
 				elif data["button"] == "togglePlayPause":
-					xdo = Xdo()
-					winID = xdo.get_active_window()
-					xdo.send_keysequence_window(winID, "XF86AudioPlay")
+					subprocess.call(["xdotool", "type", "XF86AudioPlay"])
 				elif data["button"] == "skipNext":
-					xdo = Xdo()
-					winID = xdo.get_active_window()
-					xdo.send_keysequence_window(winID, "XF86AudioNext")
+					subprocess.call(["xdotool", "type", "XF86AudioNext"])
 				elif data["button"] == "skipPrev":
-					xdo = Xdo()
-					winID = xdo.get_active_window()
-					xdo.send_keysequence_window(winID, "XF86AudioPrev")
+					subprocess.call(["xdotool", "type", "XF86AudioPrev"])
 
 				return None;
 		response["response"] = False
