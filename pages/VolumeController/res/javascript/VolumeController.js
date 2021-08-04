@@ -2,8 +2,6 @@ volumeUpCond = false
 volumeDownCond = false
 volume = 0
 
-portraitMode = true
-
 //volume up and down buttons are hold
 $("button#volumeUp").on("vmousedown",function(){
 	if (!volumeDownCond)
@@ -97,16 +95,8 @@ function update()
 		$("button#volumeMute").attr("data-pressCond",0)
 	}
 
-	portraitMode = window.screen.width <= window.screen.height
-
-	if(portraitMode)
-	{
-		$("#volumeBar").css("width", volume+"%")
-	}
-	else
-	{
-		$("#volumeBar").css("height", volume+"%")
-	}
+	$("#volumeBar").css("width", volume+"%")
+	$("#volumeBar").css("height", volume+"%")
 
 	$("button[data-pressCond=1]").addClass("pressed")
 	$("button[data-pressCond=0]").removeClass("pressed")
