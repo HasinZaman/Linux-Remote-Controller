@@ -1,5 +1,6 @@
 from Page import *
 import alsaaudio
+import xdo
 
 class VolumeController(Page):
 	'''
@@ -48,13 +49,18 @@ class VolumeController(Page):
 					self.volume -= self.volumeStep
 				elif data["button"] == "toggleMute":
 					self.muted = not self.muted
-					
 				elif data["button"] == "togglePlayPause":
-					pass
+					x = xdo()
+					winID = x.get_active_window()
+					x.send_keysequence_window(winID, "XF86AudioPlay")
 				elif data["button"] == "skipNext":
-					pass
+					x = xdo()
+					winID = x.get_active_window()
+					x.send_keysequence_window(winID, "XF86AudioNext")
 				elif data["button"] == "skipPrev":
-					pass
+					x = xdo()
+					winID = x.get_active_window()
+					x.send_keysequence_window(winID, "XF86AudioPrev")
 
 				return None;
 		response["response"] = False
