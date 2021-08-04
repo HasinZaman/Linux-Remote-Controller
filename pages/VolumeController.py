@@ -27,7 +27,6 @@ class VolumeController(Page):
 				self.mixer = alsaaudio.Mixer()
 				self.volume = self.mixer.getvolume()[0]
 
-				print(self.mixer.getvolume())
 				response["response"] = True
 				response["volume"] = int(self.volume)
 				response["muted"] = self.muted
