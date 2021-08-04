@@ -71,8 +71,8 @@ $homeButtonWidth: 30px;
 {
 	.remote
 	{
-		grid-template-columns: calc(#{95%/3} - #{$homeButtonWidth/3}) calc(#{95%/3} - #{$homeButtonWidth/3}) calc(#{95%/3} - #{$homeButtonWidth/3}) $homeButtonWidth;
-		grid-template-rows: $homeButtonWidth calc(45% - #{$homeButtonWidth/2}) calc(45% - #{$homeButtonWidth/2});
+		grid-template-columns: calc(#{99%/3} - #{$homeButtonWidth/3}) calc(#{99%/3} - #{$homeButtonWidth/3}) calc(#{99%/3} - #{$homeButtonWidth/3}) $homeButtonWidth;
+		grid-template-rows: $homeButtonWidth calc(49% - #{$homeButtonWidth/2}) calc(49% - #{$homeButtonWidth/2});
 		grid-template-areas: 
 			"skipPrev playPause skipNext menu"
 			"skipPrev playPause skipNext volumeBar"
@@ -90,7 +90,7 @@ $homeButtonWidth: 30px;
 {
 	.remote
 	{  
-		grid-template-columns:	$homeButtonWidth calc(45% - #{$homeButtonWidth/2}) calc(45% - #{$homeButtonWidth/2});
+		grid-template-columns:	$homeButtonWidth calc(49% - #{$homeButtonWidth/2}) calc(49% - #{$homeButtonWidth/2});
 		grid-template-rows:		$homeButtonWidth calc(#{100% / 3} - #{$homeButtonWidth/3}) calc(#{100% / 3} - #{$homeButtonWidth/3}) calc(#{100% / 3} - #{$homeButtonWidth/3});
 		grid-template-areas: 
 			"menu volumeBar volumeBar"
