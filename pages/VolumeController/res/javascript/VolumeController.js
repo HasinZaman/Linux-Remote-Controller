@@ -70,9 +70,11 @@ function getState()
 	})
 }
 
+var tmp
 function getStateResponse(result)
 {
-	console.log(result)
+	tmp = result
+	//console.log(result)
 
 	volume = result["volume"]
 	if(result["muted"])
