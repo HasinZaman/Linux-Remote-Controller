@@ -9,7 +9,6 @@ import sys
 #importing pages
 baseDir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "\\Linux-Remote-Controller"
 
-
 sys.path.append('{0}\\pages'.format(baseDir))
 
 pages = []
