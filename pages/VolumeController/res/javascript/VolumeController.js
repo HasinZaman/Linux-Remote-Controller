@@ -1,6 +1,5 @@
 volumeUpCond = false
 volumeDownCond = false
-muteCond = false
 volume = 0
 
 portraitMode = true
@@ -74,6 +73,16 @@ function getState()
 function getStateResponse(result)
 {
 	console.log(result)
+
+	volume = result["volume"]
+	if(result["muted"])
+	{
+		$("button#volumeMute").attr("data-pressCond",1)
+	}
+	else
+	{
+		$("button#volumeMute").attr("data-pressCond",0)
+	}
 	setTimeout(update, 100)
 }
 
