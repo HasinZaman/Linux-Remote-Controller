@@ -3,7 +3,7 @@ volumeDownCond = false
 volume = 0
 
 //volume up and down buttons are hold
-$("button#volumeUp").bind("vmousedown",function(){
+$("button#volumeUp").on("vmousedown",function(){
 	if (!volumeDownCond)
 	{
 		volumeUpCond = true
@@ -12,7 +12,7 @@ $("button#volumeUp").bind("vmousedown",function(){
 	}
 })
 
-$("button#volumeDown").bind("vmousedown",function(){
+$("button#volumeDown").on("vmousedown",function(){
 	if (!volumeUpCond)
 	{
 		volumeDownCond = true
@@ -22,13 +22,13 @@ $("button#volumeDown").bind("vmousedown",function(){
 })
 
 //volume up and down buttons are released
-$("button#volumeUp").bind("vmouseup",function(){
+$("button#volumeUp").on("vmouseup",function(){
 	volumeUpCond = false
 
 	$(this).attr("data-pressCond",0)
 })
 
-$("button#volumeDown").bind("vmouseup",function(){
+$("button#volumeDown").on("vmouseup",function(){
 	volumeDownCond = false
 
 	$(this).attr("data-pressCond",0)
