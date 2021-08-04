@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Volume Controller</title>
+	<link rel="stylesheet" type="text/css" href="res/css/style.css">
+	<link rel="stylesheet" type="text/css" href="pages/VolumeController/res/css/style.css">
+<body>
+	<div class="remote">
+		<button id="skipPrev" data-pressCond="0">
+			skipPrev
+		</button>
+		<button id="playPause" data-pressCond="0">
+			playPause
+		</button>
+		<button id="skipNext" data-pressCond="0">
+			skipNext
+		</button>
+		<button id="volumeUp" data-pressCond="0">
+			volume up
+		</button>
+		<button id="volumeDown" data-pressCond="0">
+			volume down
+		</button>
+		<button id="volumeMute" data-pressCond="0">
+			Mute
+		</button>
+		<button id="menu" onclick='window.location.href="/";'>
+			menu
+		</button>
+		<div id="volumeBar">
+			volume bar
+		</div>
+	</div>
+
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="pages/VolumeController/res/javascript/VolumeController.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</body>
+</html>
