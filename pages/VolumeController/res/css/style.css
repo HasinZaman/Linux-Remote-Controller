@@ -42,22 +42,22 @@
 }
  @media (max-aspect-ratio: 1/1) {
 	 .remote {
-		 grid-template-columns: calc(33.3333333333% - 16.6666666667px) calc(33.3333333333% - 16.6666666667px) calc(33.3333333333% - 16.6666666667px) 50px;
-		 grid-template-rows: 50px calc(50% - 25px) calc(50% - 25px);
+		 grid-template-columns: calc(33.3333333333% - 10px) calc(33.3333333333% - 10px) calc(33.3333333333% - 10px) 30px;
+		 grid-template-rows: 30px calc(50% - 15px) calc(50% - 15px);
 		 grid-template-areas: "skipPrev playPause skipNext menu" "skipPrev playPause skipNext volumeBar" "volumeUp volumeDown volumeMute volumeBar";
 	}
 	 .remote #volumeBar {
-		 width: 50px !important;
+		 width: 30px !important;
 	}
 }
  @media (min-aspect-ratio: 1/1) {
 	 .remote {
-		 grid-template-columns: 50px calc(50% - 25px) calc(50% - 25px);
-		 grid-template-rows: 50px calc(33.3333333333% - 16.6666666667px) calc(33.3333333333% - 16.6666666667px) calc(33.3333333333% - 16.6666666667px);
+		 grid-template-columns: 30px calc(50% - 15px) calc(50% - 15px);
+		 grid-template-rows: 30px calc(33.3333333333% - 10px) calc(33.3333333333% - 10px) calc(33.3333333333% - 10px);
 		 grid-template-areas: "menu volumeBar volumeBar" "skipPrev skipPrev volumeUp" "skipNext skipNext volumeDown" "playPause playPause volumeMute";
 	}
 	 .remote #volumeBar {
-		 height: 50px !important;
+		 height: 30px !important;
 	}
 }
  
