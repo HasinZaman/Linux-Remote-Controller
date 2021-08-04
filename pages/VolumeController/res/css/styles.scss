@@ -1,0 +1,108 @@
+.remote
+{
+	display: grid;
+	column-gap: 5px;
+	row-gap: 5px;
+
+	width: 98vw;
+	height: 98vh;
+
+	padding: 1vh 1vw;
+	margin: 0;
+
+	overflow: hidden;
+
+	#menu
+	{
+		grid-area: menu;
+	}
+
+	#playPause
+	{
+		grid-area: playPause;
+	}
+
+	#skipPrev
+	{
+		grid-area: skipPrev;
+	}
+	
+	#skipNext
+	{
+		grid-area: skipNext;
+	}
+
+	#volumeUp
+	{
+		grid-area: volumeUp;
+	}
+
+	#volumeDown
+	{
+		grid-area: volumeDown;
+	}
+	#volumeMute
+	{
+		grid-area: volumeMute;
+	}
+
+	#volumeBar
+	{
+		grid-area: volumeBar;
+		align-self: end;
+
+		background: white;
+
+		border: none;
+
+		width: 0%;
+		height: 0%;
+
+		transition: width 100ms, height 100ms;
+	}
+	.muted
+	{
+		background-color: red !important;
+	}
+}
+
+$homeButtonWidth: 30px;
+
+//Portrait layout
+@media (max-aspect-ratio: #{1}/#{1})
+{
+	.remote
+	{
+		grid-template-columns: calc(#{99%/3} - #{$homeButtonWidth/3}) calc(#{99%/3} - #{$homeButtonWidth/3}) calc(#{99%/3} - #{$homeButtonWidth/3}) $homeButtonWidth;
+		grid-template-rows: $homeButtonWidth calc(49% - #{$homeButtonWidth/2}) calc(49% - #{$homeButtonWidth/2});
+		grid-template-areas: 
+			"skipPrev playPause skipNext menu"
+			"skipPrev playPause skipNext volumeBar"
+			"volumeUp volumeDown volumeMute volumeBar";
+
+		#volumeBar
+		{
+			width: $homeButtonWidth !important;
+		}
+	}
+}
+
+//Landscape layout
+@media (min-aspect-ratio: #{1}/#{1})
+{
+	.remote
+	{  
+		grid-template-columns:	$homeButtonWidth calc(49% - #{$homeButtonWidth/2}) calc(49% - #{$homeButtonWidth/2});
+		grid-template-rows:		$homeButtonWidth calc(#{100% / 3} - #{$homeButtonWidth/3}) calc(#{100% / 3} - #{$homeButtonWidth/3}) calc(#{100% / 3} - #{$homeButtonWidth/3});
+		grid-template-areas: 
+			"menu volumeBar volumeBar"
+			"skipPrev skipPrev volumeUp"
+			"skipNext skipNext volumeDown"
+			"playPause playPause volumeMute";
+
+		#volumeBar
+		{
+			height: $homeButtonWidth !important;
+		}
+	}
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Volume Controller</title>
+	<link rel="stylesheet" type="text/css" href="res/css/style.css">
+	<link rel="stylesheet" type="text/css" href="pages/VolumeController/res/css/style.css">
+<body>
+	<div class="remote">
+		<button id="skipPrev" data-pressCond="0">
+			<div class="buttoncover"></div>
+			<img src="pages/VolumeController/res/img/skipPrev.png">
+		</button>
+		<button id="playPause" data-pressCond="0">
+			<div class="buttoncover"></div>
+			<img src="pages/VolumeController/res/img/playPause.png">
+		</button>
+		<button id="skipNext" data-pressCond="0">
+			<div class="buttoncover"></div>
+			<img src="pages/VolumeController/res/img/skipNext.png">
+		</button>
+		<button id="volumeUp" data-pressCond="0">
+			<div class="buttoncover"></div>
+			<img src="pages/VolumeController/res/img/volumeUp.png">
+		</button>
+		<button id="volumeDown" data-pressCond="0">
+			<div class="buttoncover"></div>
+			<img src="pages/VolumeController/res/img/volumeDown.png">
+		</button>
+		<button id="volumeMute" data-pressCond="0">
+			<div class="buttoncover"></div>
+			<img src="pages/VolumeController/res/img/volumeMute.png">
+		</button>
+		<button id="menu" onclick='window.location.href="/";'>
+			<div class="buttoncover"></div>
+			<img src="res/img/menu.png">
+		</button>
+		<div id="volumeBar">
+		</div>
+	</div>
+
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="pages/VolumeController/res/javascript/VolumeController.js"></script>
+</body>
+</html>

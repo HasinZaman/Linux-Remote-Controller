@@ -7,13 +7,13 @@ import importlib
 import sys
 
 #importing pages
-baseDir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "\\Linux-Remote-Controller"
+baseDir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/Linux-Remote-Controller"
 
-sys.path.append('{0}\\pages'.format(baseDir))
+sys.path.append('{0}/pages'.format(baseDir))
 
 pages = []
 
-for (dirPath, dirNames, fileNames) in os.walk("pages"):
+for (dirPath, dirNames, fileNames) in os.walk("{0}/pages".format(baseDir)):
     pages = [file.split(".")[0] for file in fileNames]
     del pages[pages.index("Page")]
     break
@@ -50,7 +50,7 @@ class Server(BaseHTTPRequestHandler):
 
         if self.path == '/' or self.path == '/index.html':
             self.path = '/index.html'
-            requestedFile = open(self.path[1:],mode = "r").read().split("CONTENT")
+            requestedFile = open(baseDir+"/"+self.path[1:], mode = "r").read().split("CONTENT")
 
             content = "".join([self.__makeButton(page.page.name) for page in pages])
             
@@ -59,8 +59,8 @@ class Server(BaseHTTPRequestHandler):
             requestedFile = bytes(requestedFile, 'utf-8')
             self.send_response(200)
 
-        elif os.path.exists(self.path[1:]) and self.path.split(".")[-1] != "html":
-            requestedFile = open(self.path[1:],mode = "rb").read()
+        elif os.path.exists(baseDir+"/"+self.path[1:]) and self.path.split(".")[-1] != "html":
+            requestedFile = open(baseDir+"/"+self.path[1:],mode = "rb").read()
                     
             self.send_response(200)
 
@@ -82,8 +82,8 @@ class Server(BaseHTTPRequestHandler):
             elif self.path[-3:] == "css" or self.path[-7:-4] == "css" :
                 self.send_header('Content-type', 'text/css')
                 
-        elif os.path.exists("pages//{0}//{0}.html".format(self.path[1:])):
-            requestedFile = open("pages//{0}//{0}.html".format(self.path[1:]), mode = "rb").read()
+        elif os.path.exists("{0}/pages/{1}/{1}.html".format(baseDir, self.path[1:])):
+            requestedFile = open("{0}/pages/{1}/{1}.html".format(baseDir, self.path[1:]), mode = "rb").read()
             self.send_response(200)
         else:
              requestedFile = "File not found"
@@ -118,38 +118,33 @@ class Server(BaseHTTPRequestHandler):
         '''
         data = self.dataPrepare(self)
 
-        cond = False
+        response = {"response":False}
         i1 = 0
-        while not cond and i1 < pages.length:
-            pages[i1].page.action(data, self)
+        while not response["response"] and i1 < len(pages):
+            pages[i1].page.action(data, response)
             i1+=1
         
-        self.send_response(404)
-            
+        if response["response"]:
+            self.send_response(201)
+        else:
+            self.send_response(404)
+    
         self.end_headers()
-
-        response = None
-        if cond == True:
-            response = "1"
-        elif cond == False:
-            response = "0"
-
-        self.wfile.write(response.encode())
-
+        self.wfile.write(json.dumps(response).encode())
 #setting up server
 host = None
 
 #checking if ip address is stored in setting.txt
-if not os.path.exists("setting.txt"):
+if not os.path.exists("{0}/setting.txt".format(baseDir)):
     #new settings
-    with open("{0}\\setting.txt".format(baseDir),"w") as file:
+    with open("{0}/setting.txt".format(baseDir),"w") as file:
         print("Insert server IP address:")
         host = input()
         file.write(host)
 else:
     #loading settings
     print("Reading Settings")
-    with open("{0}\\setting.txt".format(baseDir),"r") as file:
+    with open("{0}/setting.txt".format(baseDir),"r") as file:
         host = file.read()
         print(host)
 

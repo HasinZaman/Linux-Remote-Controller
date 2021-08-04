@@ -3,9 +3,10 @@ body {
 	 min-height: 100vh;
 	 height: fit-content;
 	 overflow-x: hidden;
-	 overflow-y: auto;
+	 overflow-y: hidden;
 	 background: black;
 	 color: white;
+	 margin: 0;
 }
  .ui-loader {
 	 display: none;
@@ -33,6 +34,7 @@ body {
 	 left: 0;
 	 position: absolute;
 	 z-index: 2;
+	 border: none;
 	 background-color: rgba(0, 0, 0, 0);
 }
  @media (orientation: portrait) {
