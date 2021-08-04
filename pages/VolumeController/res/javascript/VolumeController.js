@@ -11,7 +11,24 @@ $("button#volumeUp").on("vmousedown",function(){
 		$(this).attr("data-pressCond",1)
 	}
 })
+$("button#volumeUp").on("mousedown",function(){
+	if (!volumeDownCond)
+	{
+		volumeUpCond = true
+
+		$(this).attr("data-pressCond",1)
+	}
+})
+
 $("button#volumeDown").on("vmousedown",function(){
+	if (!volumeUpCond)
+	{
+		volumeDownCond = true
+
+		$(this).attr("data-pressCond",1)
+	}
+})
+$("button#volumeDown").on("mousedown",function(){
 	if (!volumeUpCond)
 	{
 		volumeDownCond = true
@@ -26,7 +43,18 @@ $("button#volumeUp").on("vmouseup",function(){
 
 	$(this).attr("data-pressCond",0)
 })
+$("button#volumeUp").on("mouseup",function(){
+	volumeUpCond = false
+
+	$(this).attr("data-pressCond",0)
+})
+
 $("button#volumeDown").on("vmouseup",function(){
+	volumeDownCond = false
+
+	$(this).attr("data-pressCond",0)
+})
+$("button#volumeDown").on("mouseup",function(){
 	volumeDownCond = false
 
 	$(this).attr("data-pressCond",0)
