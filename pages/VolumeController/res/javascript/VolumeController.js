@@ -70,10 +70,9 @@ function getState()
 	})
 }
 
-var tmp
 function getStateResponse(result)
 {
-	tmp = result
+	var tmp = JSON.parse(result)
 	//console.log(result)
 
 	volume = result["volume"]
