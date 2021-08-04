@@ -118,24 +118,19 @@ class Server(BaseHTTPRequestHandler):
         '''
         data = self.dataPrepare(self)
 
-        cond = False
+        response = {"response":False}
         i1 = 0
-        while not cond and i1 < pages.length:
-            pages[i1].page.action(data, self)
+        while not response["response"] and i1 < len(pages):
+            pages[i1].page.action(data, response)
             i1+=1
         
-        self.send_response(404)
-            
+        if response["response"]:
+            self.send_response(201)
+        else:
+            self.send_response(404)
+    
         self.end_headers()
-
-        response = None
-        if cond == True:
-            response = "1"
-        elif cond == False:
-            response = "0"
-
-        self.wfile.write(response.encode())
-
+        self.wfile.write(json.dumps(response).encode())
 #setting up server
 host = None
 
