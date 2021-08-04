@@ -83,9 +83,6 @@ class Server(BaseHTTPRequestHandler):
             dataReturn[temp[0]]=temp[1]
 
         return dataReturn
-
-    def action(self):
-        pass
             
     def do_POST(self):
         
