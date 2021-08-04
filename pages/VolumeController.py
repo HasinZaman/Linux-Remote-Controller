@@ -24,6 +24,7 @@ class VolumeController(Page):
 		'''
 		if self.validActionSource(data["page"]):
 			if data["action"] == "getState":
+				print(self.mixer.getvolume())
 				response["response"] = True
 				response["volume"] = int(self.volume)
 				response["muted"] = self.muted
