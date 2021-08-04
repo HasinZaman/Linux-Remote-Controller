@@ -152,8 +152,10 @@ class Server(BaseHTTPRequestHandler):
 
 host = None
 if not exists("setting.txt"):
+if not os.path.exists("setting.txt"):
     #new settings
     with open("setting.txt","w") as file:
+    with open("{0}\\setting.txt".format(baseDir),"w") as file:
         print("Insert server IP address:")
         host = input()
         file.write(host)
@@ -161,6 +163,7 @@ else:
     #loading settings
     print("Reading Settings")
     with open("setting.txt","r") as file:
+    with open("{0}\\setting.txt".format(baseDir),"r") as file:
         host = file.read()
         print(host)
 
