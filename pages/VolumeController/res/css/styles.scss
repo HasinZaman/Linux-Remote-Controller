@@ -53,6 +53,8 @@
 
 		background: white;
 
+		border: none;
+
 		width: 0%;
 		height: 0%;
 
@@ -81,8 +83,6 @@ $homeButtonWidth: 30px;
 		#volumeBar
 		{
 			width: $homeButtonWidth !important;
-
-			border: none;
 		}
 	}
 }
