@@ -130,6 +130,8 @@ class Server(BaseHTTPRequestHandler):
             self.send_response(404)
     
         self.end_headers()
+        print(response)
+        print(json.dumps(response))
         self.wfile.write(json.dumps(response).encode())
 #setting up server
 host = None
