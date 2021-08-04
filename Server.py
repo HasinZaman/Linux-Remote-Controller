@@ -17,7 +17,7 @@ for (dirPath, dirNames, fileNames) in os.walk("pages"):
     pages = [file.split(".")[0] for file in fileNames]
     del pages[pages.index("Page")]
     break
-
+print(pages)
 for i1 in range(len(pages)):
     pages[i1] = importlib.import_module("{0}".format(pages[i1]))
 
