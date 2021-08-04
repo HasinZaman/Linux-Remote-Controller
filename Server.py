@@ -6,6 +6,20 @@ import socket
 import importlib
 import sys
 
+baseDir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "\\Linux-Remote-Controller"
+
+sys.path.append('{0}\\pages'.format(baseDir))
+
+pages = []
+
+for (dirPath, dirNames, fileNames) in os.walk("pages"):
+    pages = [file.split(".")[0] for file in fileNames]
+    del pages[pages.index("Page")]
+    break
+
+for i1 in range(len(pages)):
+    pages[i1] = importlib.import_module("{0}".format(pages[i1]))
+
 class Server(BaseHTTPRequestHandler):
 
     def do_GET(self):
