@@ -21,6 +21,12 @@ for i1 in range(len(pages)):
     pages[i1] = importlib.import_module("{0}".format(pages[i1]))
 
 class Server(BaseHTTPRequestHandler):
+    def __makeButton(self, pageName):
+        tmp = ""
+        tmp += "<button onclick='window.location.href=\"{0}\";'>".format(pageName)
+        tmp += pageName
+        tmp += "</button>"
+        return tmp
 
     def do_GET(self):
         if self.path == '/':
