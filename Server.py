@@ -129,14 +129,22 @@ class Server(BaseHTTPRequestHandler):
         #response = False
 
         print(data["action"])
+        cond = False
+        i1 = 0
+        while not cond and i1 < pages.length:
+            pages[i1].page.action(data, self)
+            i1+=1
         
         self.send_response(404)
             
         self.end_headers()
 
         if response == True:
+        response = None
+        if cond == True:
             response = "1"
         elif response == False:
+        elif cond == False:
             response = "0"
 
         self.wfile.write(response.encode())
