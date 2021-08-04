@@ -45,9 +45,9 @@ class VolumeController(Page):
 				response["response"] = True
 				
 				if data["button"] == "increaseVolume":
-					self.volume += self.volumeStep
+					self.volume = max(0, min(self.volume + self.volumeStep, 100))
 				elif data["button"] == "decreaseVolume":
-					self.volume -= self.volumeStep
+					self.volume = max(0, min(self.volume - self.volumeStep, 100))
 				elif data["button"] == "toggleMute":
 					self.muted = not self.muted
 				elif data["button"] == "togglePlayPause":
