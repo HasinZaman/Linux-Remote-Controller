@@ -31,7 +31,8 @@ class VolumeController(Page):
 			elif int(self.mixer.getvolume()[0]) != self.volume:
 				self.mixer.setvolume(self.volume)
 
-			self.volume = int(self.mixer.getvolume()[0])
+			if not self.muted:
+				self.volume = int(self.mixer.getvolume()[0])
 
 			if data["action"] == "getState":
 				response["response"] = True
