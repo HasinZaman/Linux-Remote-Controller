@@ -24,7 +24,9 @@ class VolumeController(Page):
 		'''
 		if self.validActionSource(data["page"]):
 			if data["action"] == "getState":
+				self.mixer = alsaaudio.Mixer()
 				self.volume = self.mixer.getvolume()[0]
+
 				print(self.mixer.getvolume())
 				response["response"] = True
 				response["volume"] = int(self.volume)
