@@ -23,12 +23,12 @@ class Page():
 			raise Exception("")
 		return pageName == self.name
 
-	def action(self, data, server):
+	def action(self, data, response):
 		'''
 		action abstract method responds to POST from corresponding page source
 
 		Paramaters:
 			data (dictionary): Dictonary of json data sent by POST
-			server (Server): Server instance will be set with instance
+			response (dictionary): dictionary of response that will be filled with output
 		'''
 		raise Exception("Unimplemented method")
