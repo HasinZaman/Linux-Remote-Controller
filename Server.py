@@ -50,7 +50,7 @@ class Server(BaseHTTPRequestHandler):
 
         if self.path == '/' or self.path == '/index.html':
             self.path = '/index.html'
-            requestedFile = open(self.path[1:],mode = "r").read().split("CONTENT")
+            requestedFile = open(baseDir+"\\"+self.path[1:], mode = "r").read().split("CONTENT")
 
             content = "".join([self.__makeButton(page.page.name) for page in pages])
             
@@ -59,8 +59,8 @@ class Server(BaseHTTPRequestHandler):
             requestedFile = bytes(requestedFile, 'utf-8')
             self.send_response(200)
 
-        elif os.path.exists(self.path[1:]) and self.path.split(".")[-1] != "html":
-            requestedFile = open(self.path[1:],mode = "rb").read()
+        elif os.path.exists(baseDir+"\\"+self.path[1:]) and self.path.split(".")[-1] != "html":
+            requestedFile = open(baseDir+"\\"+self.path[1:],mode = "rb").read()
                     
             self.send_response(200)
 
@@ -82,8 +82,8 @@ class Server(BaseHTTPRequestHandler):
             elif self.path[-3:] == "css" or self.path[-7:-4] == "css" :
                 self.send_header('Content-type', 'text/css')
                 
-        elif os.path.exists("pages//{0}//{0}.html".format(self.path[1:])):
-            requestedFile = open("pages//{0}//{0}.html".format(self.path[1:]), mode = "rb").read()
+        elif os.path.exists("{0}\\pages\\{1}\\{1}.html".format(baseDir, self.path[1:])):
+            requestedFile = open("{0}\\pages\\{1}\\{1}.html".format(baseDir, self.path[1:]), mode = "rb").read()
             self.send_response(200)
         else:
              requestedFile = "File not found"
