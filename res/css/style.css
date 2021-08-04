@@ -3,9 +3,10 @@ body {
 	 min-height: 100vh;
 	 height: fit-content;
 	 overflow-x: hidden;
-	 overflow-y: auto;
+	 overflow-y: hidden;
 	 background: black;
 	 color: white;
+	 margin: 0;
 }
  .ui-loader {
 	 display: none;
