@@ -8,7 +8,7 @@ import sys
 
 #importing pages
 baseDir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/Linux-Remote-Controller"
-
+print(baseDir)
 sys.path.append('{0}/pages'.format(baseDir))
 
 pages = []
@@ -133,6 +133,8 @@ class Server(BaseHTTPRequestHandler):
         self.wfile.write(json.dumps(response).encode())
 #setting up server
 host = None
+
+print("{0}/setting.txt".format(baseDir))
 
 #checking if ip address is stored in setting.txt
 if not os.path.exists("{0}/setting.txt".format(baseDir)):
