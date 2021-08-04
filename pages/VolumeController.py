@@ -12,7 +12,7 @@ class VolumeController(Page):
 		self.mixer = alsaaudio.Mixer()
 		self.name = "VolumeController"
 		self.muted = False
-		self.volume = self.mixer.getvolume()
+		self.volume = self.mixer.getvolume()[0]
 
 	def action(self, data, response):
 		'''
