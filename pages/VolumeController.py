@@ -9,9 +9,10 @@ class VolumeController(Page):
 		'''
 		constructor initializes VolumeController
 		'''
+		self.mixer = alsaaudio.Mixer()
 		self.name = "VolumeController"
 		self.muted = False
-		self.volume = alsaaudio.Mixer()
+		self.volume = self.mixer.getvolume()
 
 	def action(self, data, response):
 		'''
@@ -24,7 +25,7 @@ class VolumeController(Page):
 		if self.validActionSource(data["page"]):
 			if data["action"] == "getState":
 				response["response"] = True
-				response["volume"] = self.volume
+				response["volume"] = int(self.volume)
 				response["muted"] = self.muted
 				return None;
 			elif data["action"] == "buttonPress":
