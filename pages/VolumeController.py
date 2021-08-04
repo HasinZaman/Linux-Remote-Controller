@@ -25,6 +25,12 @@ class VolumeController(Page):
 		'''
 		if self.validActionSource(data["page"]):
 			self.mixer = alsaaudio.Mixer()
+
+			if self.muted and self.volume != 0:
+				self.mixer.setvolume(0)
+			elif int(self.mixer.getvolume()[0]) != self.volume:
+				self.mixer.setvolume(self.volume)
+
 			self.volume = int(self.mixer.getvolume()[0])
 
 			if data["action"] == "getState":
@@ -36,21 +42,19 @@ class VolumeController(Page):
 				response["response"] = True
 				
 				if data["button"] == "increaseVolume":
-					self.mixer.setvolume(self.volume + self.volumeStep)
+					self.volume += self.volumeStep
 				elif data["button"] == "decreaseVolume":
-					self.mixer.setvolume(self.volume - self.volumeStep)
+					self.volume -= self.volumeStep
 				elif data["button"] == "toggleMute":
 					self.muted = not self.muted
-					if self.muted:
-						self.mixer.setvolume(0)
-					else:
-						self.mixer.setvolume(self.volume)
+					
 				elif data["button"] == "togglePlayPause":
 					pass
 				elif data["button"] == "skipNext":
 					pass
 				elif data["button"] == "skipPrev":
 					pass
+
 				return None;
 		response["response"] = False
 		return None;
