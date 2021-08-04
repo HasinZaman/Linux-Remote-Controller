@@ -52,10 +52,13 @@ class VolumeController(Page):
 					self.muted = not self.muted
 				elif data["button"] == "togglePlayPause":
 					subprocess.call(["xdotool", "type", "XF86AudioPlay"])
+					time.sleep(0.1)
 				elif data["button"] == "skipNext":
 					subprocess.call(["xdotool", "type", "XF86AudioNext"])
+					time.sleep(0.1)
 				elif data["button"] == "skipPrev":
 					subprocess.call(["xdotool", "type", "XF86AudioPrev"])
+					time.sleep(0.1)
 
 				return None;
 		response["response"] = False
