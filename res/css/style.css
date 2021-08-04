@@ -15,7 +15,7 @@ body {
 	 height: calc(100vh - 20px);
 	 margin: 10px;
 }
- .remote button:first-child, .remote div:first-child {
+ .remote button, .remote div {
 	 width: 100%;
 	 height: 100%;
 	 position: relative;
@@ -26,17 +26,18 @@ body {
 	 -webkit-user-select: none;
 	 user-select: none;
 }
- .remote button:first-child .buttoncover, .remote div:first-child .buttoncover {
+ .remote button .buttoncover, .remote div .buttoncover {
 	 width: 100%;
 	 height: 100%;
 	 top: 0;
 	 left: 0;
 	 position: absolute;
 	 z-index: 2;
+	 border: none;
 	 background-color: rgba(0, 0, 0, 0);
 }
  @media (orientation: portrait) {
-	 .remote button:first-child img, .remote div:first-child img {
+	 .remote button img, .remote div img {
 		 width: 80%;
 		 height: auto;
 		 top: 50%;
@@ -47,7 +48,7 @@ body {
 	}
 }
  @media (orientation: landscape) {
-	 .remote button:first-child img, .remote div:first-child img {
+	 .remote button img, .remote div img {
 		 width: auto;
 		 height: 80%;
 		 top: 50%;
