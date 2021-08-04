@@ -1,4 +1,5 @@
 from Page import *
+import alsaaudio
 
 class VolumeController(Page):
 	'''
@@ -10,6 +11,7 @@ class VolumeController(Page):
 		'''
 		self.name = "VolumeController"
 		self.muted = False
+		self.volume = alsaaudio.Mixer()
 
 	def action(self, data, response):
 		'''
@@ -22,8 +24,8 @@ class VolumeController(Page):
 		if self.validActionSource(data["page"]):
 			if data["action"] == "getState":
 				response["response"] = True
-				#response["response"] = True
-				#response["response"] = True
+				response["volume"] = self.volume
+				response["muted"] = self.muted
 				return None;
 			elif data["action"] == "buttonPress":
 				response["response"] = True
