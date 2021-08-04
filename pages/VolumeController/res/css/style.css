@@ -48,6 +48,7 @@
 	}
 	 .remote #volumeBar {
 		 width: 30px !important;
+		 border: none;
 	}
 }
  @media (min-aspect-ratio: 1/1) {
