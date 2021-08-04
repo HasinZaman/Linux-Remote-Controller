@@ -13,7 +13,7 @@ sys.path.append('{0}/pages'.format(baseDir))
 
 pages = []
 
-for (dirPath, dirNames, fileNames) in os.walk("pages"):
+for (dirPath, dirNames, fileNames) in os.walk("{0}/pages".format(baseDir)):
     pages = [file.split(".")[0] for file in fileNames]
     del pages[pages.index("Page")]
     break
