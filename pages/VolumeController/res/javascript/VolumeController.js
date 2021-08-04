@@ -67,6 +67,12 @@ $("button#volumeMute").click(function(){
 $("button#playPause").click(function(){
 	buttonPress("togglePlayPause")
 })
+$("button#skipNext").click(function(){
+	buttonPress("skipNext")
+})
+$("button#skipPrev").click(function(){
+	buttonPress("skipPrev")
+})
 
 function buttonPress(buttonName)
 {
@@ -76,8 +82,8 @@ function buttonPress(buttonName)
 		data:
 		{
 			page:"VolumeController",
-			action:"buttonPress",
-			button:buttonName
+			action: "buttonPress",
+			button: buttonName
 		}
 	})
 }
@@ -117,10 +123,8 @@ function update()
 {
 	if($("button#volumeUp").attr("data-pressCond") == 1){
 		buttonPress("increaseVolume")
-		$("button#volumeMute").attr("data-pressCond",0)
 	}else if($("button#volumeDown").attr("data-pressCond") == 1){
 		buttonPress("decreaseVolume")
-		$("button#volumeMute").attr("data-pressCond",0)
 	}
 
 	$("#volumeBar").css("width", volume+"%")
