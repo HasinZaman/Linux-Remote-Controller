@@ -135,7 +135,7 @@ class Server(BaseHTTPRequestHandler):
 host = None
 
 #checking if ip address is stored in setting.txt
-if not os.path.exists("setting.txt"):
+if not os.path.exists("{0}\\setting.txt".format(baseDir)):
     #new settings
     with open("{0}\\setting.txt".format(baseDir),"w") as file:
         print("Insert server IP address:")
