@@ -91,7 +91,7 @@ $homeButtonWidth: 30px;
 	.remote
 	{  
 		grid-template-columns: $homeButtonWidth calc(45% - #{$homeButtonWidth/2}) calc(45% - #{$homeButtonWidth/2});
-		grid-template-rows: $homeButtonWidth calc(#{100$ / 3} - #{$homeButtonWidth/3}) calc(#{100% / 3} - #{$homeButtonWidth/3}) calc(#{100% / 3} - #{$homeButtonWidth/3});
+		grid-template-rows: $homeButtonWidth calc(#{100% / 3} - #{$homeButtonWidth/3}) calc(#{100% / 3} - #{$homeButtonWidth/3}) calc(#{100% / 3} - #{$homeButtonWidth/3});
 		grid-template-areas: 
 			"menu volumeBar volumeBar"
 			"skipPrev skipPrev volumeUp"
