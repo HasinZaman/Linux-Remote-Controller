@@ -1,3 +1,4 @@
+#importing python 
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import os
 import json
@@ -5,6 +6,7 @@ import socket
 import importlib
 import sys
 
+#importing pages
 baseDir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "\\Linux-Remote-Controller"
 
 sys.path.append('{0}\\pages'.format(baseDir))
@@ -20,7 +22,20 @@ for i1 in range(len(pages)):
     pages[i1] = importlib.import_module("{0}".format(pages[i1]))
 
 class Server(BaseHTTPRequestHandler):
+    '''
+    Server is child class of BaseHTTPRequestHandler
+    '''
+
     def __makeButton(self, pageName):
+        '''
+        __makeButton is private method that create html button dom for page on the menu page(index.html)
+
+        paramaters:
+            pageName (string): Name of page
+
+        Return:
+            String of html dom of a button
+        '''
         tmp = ""
         tmp += "<button onclick='window.location.href=\"{0}\";'>".format(pageName)
         tmp += pageName
@@ -28,7 +43,11 @@ class Server(BaseHTTPRequestHandler):
         return tmp
 
     def do_GET(self):
+        '''
+            do_GET method sets up nessary files and responses to GET request
+        '''
         requestedFile = None
+
         if self.path == '/' or self.path == '/index.html':
             self.path = '/index.html'
             requestedFile = open(self.path[1:],mode = "r").read().split("CONTENT")
@@ -39,6 +58,7 @@ class Server(BaseHTTPRequestHandler):
 
             requestedFile = bytes(requestedFile, 'utf-8')
             self.send_response(200)
+
         elif os.path.exists(self.path[1:]) and self.path.split(".")[-1] != "html":
             requestedFile = open(self.path[1:],mode = "rb").read()
                     
@@ -63,7 +83,6 @@ class Server(BaseHTTPRequestHandler):
                 self.send_header('Content-type', 'text/css')
                 
         elif os.path.exists("pages//{0}//{0}.html".format(self.path[1:])):
-            print("pages//{0}//{0}.html".format(self.path[1:]))
             requestedFile = open("pages//{0}//{0}.html".format(self.path[1:]), mode = "rb").read()
             self.send_response(200)
         else:
@@ -72,7 +91,16 @@ class Server(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(requestedFile)
 
-    def dataPrepare(self,dataRaw):
+    def dataPrepare(self, dataRaw):
+        '''
+        dataPrepare converts Post data into dictionary
+
+        paramaters:
+            dataRaw (byte object): dataRaw is the unaltered Post Json data sent from client
+
+        Return:
+            Dictionary form of the Json data sent from client
+        '''
         content_length = int(dataRaw.headers['Content-Length'])
         
         data = dataRaw.rfile.read(content_length).decode("utf-8").split("&")
@@ -85,8 +113,9 @@ class Server(BaseHTTPRequestHandler):
         return dataReturn
             
     def do_POST(self):
-        
-
+        '''
+        do_POST method handles post requests by client
+        '''
         data = self.dataPrepare(self)
 
         cond = False
@@ -106,9 +135,11 @@ class Server(BaseHTTPRequestHandler):
             response = "0"
 
         self.wfile.write(response.encode())
-        pass
 
+#setting up server
 host = None
+
+#checking if ip address is stored in setting.txt
 if not os.path.exists("setting.txt"):
     #new settings
     with open("{0}\\setting.txt".format(baseDir),"w") as file:
@@ -122,5 +153,6 @@ else:
         host = file.read()
         print(host)
 
+#start server
 httpd = HTTPServer((host, 8080), Server)
 httpd.serve_forever()
