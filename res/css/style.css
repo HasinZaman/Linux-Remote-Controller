@@ -1,0 +1,63 @@
+body {
+	 width: 100vw;
+	 min-height: 100vh;
+	 height: fit-content;
+	 overflow-x: hidden;
+	 overflow-y: auto;
+	 background: black;
+	 color: white;
+}
+ .ui-loader {
+	 display: none;
+}
+ .remote {
+	 width: calc(100vw - 40px);
+	 height: calc(100vh - 20px);
+	 margin: 10px;
+}
+ .remote button, .remote div {
+	 width: 100%;
+	 height: 100%;
+	 position: relative;
+	 background-color: black;
+	 border: solid white 3px;
+	 border-radius: 30px;
+	 -moz-user-select: none;
+	 -webkit-user-select: none;
+	 user-select: none;
+}
+ .remote button .buttoncover, .remote div .buttoncover {
+	 width: 100%;
+	 height: 100%;
+	 top: 0;
+	 left: 0;
+	 position: absolute;
+	 z-index: 2;
+	 background-color: rgba(0, 0, 0, 0);
+}
+ @media (orientation: portrait) {
+	 .remote button img, .remote div img {
+		 width: 80%;
+		 height: auto;
+		 top: 50%;
+		 left: 50%;
+		 transform: translate(-50%, -50%);
+		 position: absolute;
+		 z-index: 1;
+	}
+}
+ @media (orientation: landscape) {
+	 .remote button img, .remote div img {
+		 width: auto;
+		 height: 80%;
+		 top: 50%;
+		 left: 50%;
+		 transform: translate(-50%, -50%);
+		 position: absolute;
+		 z-index: 1;
+	}
+}
+ .remote .pressed img {
+	 transform: translate(-50%, -50%) scale(1.1);
+}
+ 
