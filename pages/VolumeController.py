@@ -36,15 +36,15 @@ class VolumeController(Page):
 				response["response"] = True
 				
 				if data["button"] == "increaseVolume":
-					self.mixersetvolume(self.volume + self.volumeStep)
+					self.mixer.setvolume(self.volume + self.volumeStep)
 				elif data["button"] == "decreaseVolume":
-					self.mixersetvolume(self.volume - self.volumeStep)
+					self.mixer.setvolume(self.volume - self.volumeStep)
 				elif data["button"] == "toggleMute":
 					self.muted = not self.muted
 					if self.muted:
-						self.mixersetvolume(0)
+						self.mixer.setvolume(0)
 					else:
-						self.mixersetvolume(self.volume)
+						self.mixer.setvolume(self.volume)
 				elif data["button"] == "togglePlayPause":
 					pass
 				elif data["button"] == "skipNext":
