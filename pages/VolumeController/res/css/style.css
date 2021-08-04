@@ -54,9 +54,9 @@
 	 .remote {
 		 grid-template-columns: 30px calc(45% - 15px) calc(45% - 15px);
 		 grid-template-rows: 30px calc(#{
-			95$ / 3
+			100$ / 3
 		}
-		 - 10px) calc(31.6666666667% - 10px) calc(31.6666666667% - 10px);
+		 - 10px) calc(33.3333333333% - 10px) calc(33.3333333333% - 10px);
 		 grid-template-areas: "menu volumeBar volumeBar" "skipPrev skipPrev volumeUp" "skipNext skipNext volumeDown" "playPause playPause volumeMute";
 	}
 	 .remote #volumeBar {
