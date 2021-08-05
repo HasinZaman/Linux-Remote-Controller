@@ -5,7 +5,9 @@ $("button#backSpace").on("vmousedown",function(){
 		backspace = true
 	}
 })
+
 $("button#backSlash").on("vmouseup",function(){
+	console.log("backspace")
 	backspace = false
 })
 
