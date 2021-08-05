@@ -1,4 +1,6 @@
 from Page import *
+import subprocess
+import time
 
 class KeyboardController(Page):
 	'''
@@ -9,7 +11,7 @@ class KeyboardController(Page):
 		constructor initializes KeyboardController
 		'''
 		self.name = "KeyboardController"
-		pass
+		
 	def action(self, data, response):
 		'''
 		action method responds to POST call
@@ -17,6 +19,13 @@ class KeyboardController(Page):
 			data (dictionary): Dictonary of json data sent by POST
 			response (dictionary): dictionary of response that will be filled with output
 		'''
-		pass
+		if self.validActionSource(data["page"]):
+			if data["action"] == "keySequence":
+				response["response"] = True
+				for letter in data["keySequence"]:
+					subprocess.call(["xdotool", "type", letter])
+					time.sleep(0.1)
+		response["response"] = False
+		return None
 
 page = KeyboardController()
