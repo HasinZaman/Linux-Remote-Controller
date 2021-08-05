@@ -1,3 +1,5 @@
+from Page import *
+
 class KeyboardController(Page):
 	'''
 	KeyboardController class updates the volume of the linux system hosting the webserver
