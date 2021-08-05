@@ -16,3 +16,5 @@ class KeyboardController(Page):
 			response (dictionary): dictionary of response that will be filled with output
 		'''
 		pass
+
+page = KeyboardController()
