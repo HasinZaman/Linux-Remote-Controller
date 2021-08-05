@@ -24,6 +24,7 @@ body {
 	 grid-area: keyboardInput;
 	 width: 75%;
 	 height: 50px;
+	 font-size: xx-large;
 	 justify-self: center;
 	 align-self: center;
 }
