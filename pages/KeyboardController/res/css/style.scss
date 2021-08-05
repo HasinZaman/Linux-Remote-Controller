@@ -69,11 +69,12 @@
 		input
 		{
 			width: 100%;
-
 			font-size: xx-large;
-			background: none;
-			border:none;
+			background: none !important;
+			border: none !important;
 			color: white;
+			height: 100%;
+			outline: none !important;
 		}
 	}
 }
