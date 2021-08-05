@@ -1,0 +1,54 @@
+.remote {
+	 width: 96vw;
+	 height: 96vh;
+	 padding: 2vh 2vw;
+	 margin: 0;
+	 display: grid;
+	 grid-template-columns: 50px auto 100px;
+	 grid-template-rows: 50px auto 50px 50px auto;
+	 grid-template-areas: "menu . ." ". . ." ". . backSpace" ". keyboardInput enter" ". . .";
+}
+ .remote button {
+	 color: white;
+}
+ .remote #menu {
+	 grid-area: menu;
+	 background: none;
+	 outline: none;
+	 box-shadow: none;
+	 border: 2px white solid;
+	 border-radius: 100%;
+	 padding: 5px;
+}
+ .remote #menu img {
+	 width: 100%;
+	 height: 100%;
+}
+ .remote #backSpace {
+	 grid-area: backSpace;
+	 width: 100px;
+	 justify-self: self-end;
+}
+ .remote #enter {
+	 grid-area: enter;
+	 width: 100%;
+	 justify-self: self-start;
+}
+ .remote .ui-input-text {
+	 grid-area: keyboardInput;
+	 width: 80%;
+	 margin-right: 5%;
+	 height: 50px;
+	 justify-self: self-end;
+	 align-self: center;
+}
+ .remote .ui-input-text input {
+	 width: 100%;
+	 font-size: xx-large;
+	 background: none !important;
+	 border: none !important;
+	 color: white;
+	 height: 100%;
+	 outline: none !important;
+}
+ 

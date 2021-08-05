@@ -1,0 +1,80 @@
+.remote
+{
+	width: 96vw;
+	height: 96vh;
+	padding: 2vh 2vw;
+	margin: 0;
+
+	display: grid;
+
+	$homeButtonWidth: 50px;
+
+	grid-template-columns: $homeButtonWidth auto $homeButtonWidth * 2;
+	grid-template-rows: $homeButtonWidth auto $homeButtonWidth $homeButtonWidth auto;
+	grid-template-areas:
+		"menu . ."
+		". . ."
+		". . backSpace"
+		". keyboardInput enter"
+		". . .";
+
+	button
+	{
+		color: white;
+	}
+
+	#menu
+	{
+		grid-area: menu;
+		background: none;
+		outline: none;
+		box-shadow: none;
+		border: 2px white solid;
+		border-radius: 100%;
+		padding: 5px;
+
+		img
+		{
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	#backSpace
+	{
+		grid-area: backSpace;
+
+		width: $homeButtonWidth * 2;
+
+		justify-self: self-end;
+	}
+
+	#enter
+	{
+		grid-area: enter;
+
+		width: 100%;
+		justify-self: self-start;
+	}
+
+	.ui-input-text
+	{
+		grid-area: keyboardInput;
+		width: 80%;
+		margin-right: 5%;
+		height: $homeButtonWidth;
+		justify-self: self-end;
+		align-self: center;
+
+		input
+		{
+			width: 100%;
+			font-size: xx-large;
+			background: none !important;
+			border: none !important;
+			color: white;
+			height: 100%;
+			outline: none !important;
+		}
+	}
+}
