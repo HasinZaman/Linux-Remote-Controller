@@ -13,16 +13,24 @@ body
 	grid-template-rows: $homeButtonWidth auto;
 	grid-template-areas:
 		"menu . ."
-		". searchBar .";
+		". keyboardInput .";
 
 	#menu
 	{
 		grid-area: menu;
+
+		background-color: none;
+
+		img
+		{
+			width: 100%;
+			height: 100%;
+		}
 	}
 
-	#searchBar
+	#keyboardInput
 	{
-		grid-area: searchBar;
+		grid-area: keyboardInput;
 
 		width: 75%;
 		justify-self: center;
