@@ -7,6 +7,9 @@
 	 grid-template-rows: 50px auto 50px 50px auto;
 	 grid-template-areas: "menu . ." ". . ." ". . backSlash" ". keyboardInput enter" ". . .";
 }
+ .remote button {
+	 color: white;
+}
  .remote #menu {
 	 grid-area: menu;
 	 background: none;
