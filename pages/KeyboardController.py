@@ -34,7 +34,7 @@ class KeyboardController(Page):
 						return
 			elif data["action"] == "buttonPress":
 				if data["button"] == "enter":
-					subprocess.call(["xdotool", "key", "Enterbacbackb"])
+					subprocess.call(["xdotool", "key", "Enter"])
 					time.sleep(0.1)
 					response["response"] = True
 					return
