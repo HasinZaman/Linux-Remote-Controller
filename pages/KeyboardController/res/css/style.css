@@ -1,13 +1,13 @@
-body {
+.remote {
 	 width: 98vw;
 	 height: 98vh;
 	 padding: 2vh 2vw;
 	 display: grid;
-	 grid-template-columns: 50px auto 50px;
-	 grid-template-rows: 50px auto;
-	 grid-template-areas: "menu . ." ". keyboardInput .";
+	 grid-template-columns: 50px auto 100px;
+	 grid-template-rows: 50px auto 50px 50px auto;
+	 grid-template-areas: "menu . ." ". . ." ". . backSlash" ". keyboardInput enter" ". . .";
 }
- body #menu {
+ .remote #menu {
 	 grid-area: menu;
 	 background: none;
 	 outline: none;
@@ -16,16 +16,26 @@ body {
 	 border-radius: 100%;
 	 padding: 5px;
 }
- body #menu img {
+ .remote #menu img {
 	 width: 100%;
 	 height: 100%;
 }
- body #keyboardInput {
+ .remote #backSlash {
+	 grid-area: backSlash;
+	 width: 100px;
+	 justify-self: self-end;
+}
+ .remote #enter {
+	 grid-area: enter;
+	 width: 100%;
+	 justify-self: self-start;
+}
+ .remote #keyboardInput {
 	 grid-area: keyboardInput;
 	 width: 75%;
 	 height: 50px;
 	 font-size: xx-large;
-	 justify-self: center;
+	 justify-self: self-end;
 	 align-self: center;
 }
  

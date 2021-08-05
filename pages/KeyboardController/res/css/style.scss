@@ -1,4 +1,4 @@
-body
+.remote
 {
 	width: 98vw;
 	height: 98vh;
@@ -9,11 +9,14 @@ body
 
 	$homeButtonWidth: 50px;
 
-	grid-template-columns: $homeButtonWidth auto $homeButtonWidth;
-	grid-template-rows: $homeButtonWidth auto;
+	grid-template-columns: $homeButtonWidth auto $homeButtonWidth * 2;
+	grid-template-rows: $homeButtonWidth auto $homeButtonWidth $homeButtonWidth auto;
 	grid-template-areas:
 		"menu . ."
-		". keyboardInput .";
+		". . ."
+		". . backSlash"
+		". keyboardInput enter"
+		". . .";
 
 	#menu
 	{
@@ -32,13 +35,30 @@ body
 		}
 	}
 
+	#backSlash
+	{
+		grid-area: backSlash;
+
+		width: $homeButtonWidth * 2;
+
+		justify-self: self-end;
+	}
+
+	#enter
+	{
+		grid-area: enter;
+
+		width: 100%;
+		justify-self: self-start;
+	}
+
 	#keyboardInput
 	{
 		grid-area: keyboardInput;
 		width: 75%;
 		height: $homeButtonWidth;
 		font-size: xx-large;
-		justify-self: center;
+		justify-self: self-end;
 		align-self: center;
 	}
 }
