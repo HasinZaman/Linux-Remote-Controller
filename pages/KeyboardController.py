@@ -23,8 +23,12 @@ class KeyboardController(Page):
 			if data["action"] == "keySequence":
 				response["response"] = True
 				for letter in data["keySequence"]:
-					subprocess.call(["xdotool", "type", letter])
-					time.sleep(0.1)
+					if letter in "abcdefghijklmnopqrstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890":
+						subprocess.call(["xdotool", "type", letter])
+						time.sleep(0.1)
+					elif letter == " ":
+						subprocess.call(["xdotool", "type", "space"])
+						time.sleep(0.1)
 		response["response"] = False
 		return None
 
