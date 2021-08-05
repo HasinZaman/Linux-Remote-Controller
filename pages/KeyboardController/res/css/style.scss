@@ -60,16 +60,20 @@
 	.ui-input-text
 	{
 		grid-area: keyboardInput;
-		width: 75%;
+		width: 80%;
+		margin-right: 5%;
 		height: $homeButtonWidth;
 		justify-self: self-end;
 		align-self: center;
-		
+
 		input
 		{
-			font-size: xx-large;
-			color: white;
 			width: 100%;
+
+			font-size: xx-large;
+			background: none;
+			border:none;
+			color: white;
 		}
 	}
 }

@@ -36,14 +36,17 @@
 }
  .remote .ui-input-text {
 	 grid-area: keyboardInput;
-	 width: 75%;
+	 width: 80%;
+	 margin-right: 5%;
 	 height: 50px;
 	 justify-self: self-end;
 	 align-self: center;
 }
  .remote .ui-input-text input {
-	 font-size: xx-large;
-	 color: white;
 	 width: 100%;
+	 font-size: xx-large;
+	 background: none;
+	 border: none;
+	 color: white;
 }
  
