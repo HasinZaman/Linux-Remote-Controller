@@ -7,7 +7,7 @@ body
 
 	display: grid;
 
-	$homeButtonWidth: 30px;
+	$homeButtonWidth: 50px;
 
 	grid-template-columns: $homeButtonWidth auto $homeButtonWidth;
 	grid-template-rows: $homeButtonWidth auto;
@@ -35,8 +35,8 @@ body
 	#keyboardInput
 	{
 		grid-area: keyboardInput;
-
 		width: 75%;
+		height: $homeButtonWidth;
 		justify-self: center;
     	align-self: center;
 	}

@@ -3,8 +3,8 @@ body {
 	 height: 98vh;
 	 padding: 2vh 2vw;
 	 display: grid;
-	 grid-template-columns: 30px auto 30px;
-	 grid-template-rows: 30px auto;
+	 grid-template-columns: 50px auto 50px;
+	 grid-template-rows: 50px auto;
 	 grid-template-areas: "menu . ." ". keyboardInput .";
 }
  body #menu {
@@ -23,6 +23,7 @@ body {
  body #keyboardInput {
 	 grid-area: keyboardInput;
 	 width: 75%;
+	 height: 50px;
 	 justify-self: center;
 	 align-self: center;
 }
