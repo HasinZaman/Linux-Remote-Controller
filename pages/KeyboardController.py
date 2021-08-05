@@ -32,6 +32,17 @@ class KeyboardController(Page):
 						time.sleep(0.1)
 						response["response"] = True
 						return
+			elif data["action"] == "buttonPress":
+				if data["button"] == "enter":
+					subprocess.call(["xdotool", "key", "Enterbacbackb"])
+					time.sleep(0.1)
+					response["response"] = True
+					return
+				elif data["button"] == "backspace":
+					subprocess.call(["xdotool", "key", "BackSpace"])
+					time.sleep(0.1)
+					response["response"] = True
+					return
 		response["response"] = False
 		return None
 
