@@ -16,12 +16,6 @@ function update()
 			}
 		})
 
-		console.log({
-				page: "KeyboardController",
-				action: "keySequence",
-				keySequence: $("#keyboardInput").val()
-			})
-
 		$("#keyboardInput").val("")
 	}
 
