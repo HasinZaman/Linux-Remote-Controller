@@ -9,7 +9,12 @@ body {
 }
  body #menu {
 	 grid-area: menu;
-	 background-color: none;
+	 background: none;
+	 outline: none;
+	 box-shadow: none;
+	 border: 2px white solid;
+	 border-radius: 100%;
+	 padding: 5px;
 }
  body #menu img {
 	 width: 100%;
@@ -19,5 +24,6 @@ body {
 	 grid-area: keyboardInput;
 	 width: 75%;
 	 justify-self: center;
+	 align-self: center;
 }
  
