@@ -6,8 +6,7 @@ $("button#backSpace").on("vmousedown",function(){
 	}
 })
 
-$("button#backSlash").on("vmouseup",function(){
-	console.log("backspace")
+$("button#backSpace").on("vmouseup",function(){
 	backspace = false
 })
 
