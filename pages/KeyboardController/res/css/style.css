@@ -1,7 +1,8 @@
 .remote {
-	 width: 98vw;
-	 height: 98vh;
+	 width: 96vw;
+	 height: 96vh;
 	 padding: 2vh 2vw;
+	 margin: 0;
 	 display: grid;
 	 grid-template-columns: 50px auto 100px;
 	 grid-template-rows: 50px auto 50px 50px auto;
