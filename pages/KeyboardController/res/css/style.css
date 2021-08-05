@@ -6,7 +6,7 @@
 	 display: grid;
 	 grid-template-columns: 50px auto 100px;
 	 grid-template-rows: 50px auto 50px 50px auto;
-	 grid-template-areas: "menu . ." ". . ." ". . backSlash" ". keyboardInput enter" ". . .";
+	 grid-template-areas: "menu . ." ". . ." ". . backSpace" ". keyboardInput enter" ". . .";
 }
  .remote button {
 	 color: white;
@@ -24,8 +24,8 @@
 	 width: 100%;
 	 height: 100%;
 }
- .remote #backSlash {
-	 grid-area: backSlash;
+ .remote #backSpace {
+	 grid-area: backSpace;
 	 width: 100px;
 	 justify-self: self-end;
 }

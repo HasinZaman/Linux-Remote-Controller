@@ -14,7 +14,7 @@
 	grid-template-areas:
 		"menu . ."
 		". . ."
-		". . backSlash"
+		". . backSpace"
 		". keyboardInput enter"
 		". . .";
 
@@ -40,9 +40,9 @@
 		}
 	}
 
-	#backSlash
+	#backSpace
 	{
-		grid-area: backSlash;
+		grid-area: backSpace;
 
 		width: $homeButtonWidth * 2;
 
