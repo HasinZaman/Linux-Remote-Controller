@@ -3,11 +3,18 @@ function update()
 {
 	var keySequence = ""
 
-	if($("#keyboardInput").val() != "")
+	if($("#keyboardInput").val() !== "" && $("#keyboardInput").val() !== undefined)
 	{
-		keySequence = $("#keyboardInput").val()
-
-		console.log(keySequence)
+		$.ajax
+		({
+			type:"POST",
+			data:
+			{
+				page: "KeyboardController",
+				action: "keySequence",
+				keySequence: $("#keyboardInput").val()
+			}
+		})
 
 		$("#keyboardInput").val("")
 	}
