@@ -29,7 +29,7 @@ class KeyboardController(Page):
 						return
 					elif letter == "+":
 						print("SPACE SPACE SPACE")
-						subprocess.call(["xdotool", "type", "space"])
+						subprocess.call(["xdotool", "type", " "])
 						time.sleep(0.1)
 						response["response"] = True
 						return
