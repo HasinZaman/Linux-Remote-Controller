@@ -21,16 +21,13 @@ class KeyboardController(Page):
 		'''
 		if self.validActionSource(data["page"]):
 			if data["action"] == "keySequence":
-				print("Letters:"+data["keySequence"])
 				for letter in data["keySequence"]:
-					print("Letter:"+letter)
-					print(letter == " ")
 					if letter in "abcdefghijklmnopqrstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890":
 						subprocess.call(["xdotool", "type", letter])
 						time.sleep(0.1)
 						response["response"] = True
 						return
-					elif letter == " ":
+					elif letter == "+":
 						print("SPACE SPACE SPACE")
 						subprocess.call(["xdotool", "type", "space"])
 						time.sleep(0.1)
