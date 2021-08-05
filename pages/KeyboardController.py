@@ -21,9 +21,9 @@ class KeyboardController(Page):
 		'''
 		if self.validActionSource(data["page"]):
 			if data["action"] == "keySequence":
-				response["response"] = True
+				print("Letters:"+data["keySequence"])
 				for letter in data["keySequence"]:
-					print(letter)
+					print("Letter:"+letter)
 					print(letter == " ")
 					if letter in "abcdefghijklmnopqrstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890":
 						subprocess.call(["xdotool", "type", letter])
