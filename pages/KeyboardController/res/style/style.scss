@@ -1,0 +1,25 @@
+body
+{
+	width: 100vw;
+	height: 100vh;
+
+	display: grid;
+
+	$homeButtonWidth: 30px;
+
+	grid-template-columns: $homeButtonWidth auto $homeButtonWidth;
+	grid-template-rows: $homeButtonWidth auto;
+	grid-template-areas:
+		"menu . ."
+		". searchBar .";
+
+	#menu
+	{
+		grid-area: menu;
+	}
+
+	#searchBar
+	{
+		grid-area: searchBar;
+	}
+}

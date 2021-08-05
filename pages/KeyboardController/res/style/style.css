@@ -1,0 +1,15 @@
+body {
+	 width: 100vw;
+	 height: 100vh;
+	 display: grid;
+	 grid-template-columns: 30px auto 30px;
+	 grid-template-rows: 30px auto;
+	 grid-template-areas: "menu . ." ". searchBar .";
+}
+ body #menu {
+	 grid-area: menu;
+}
+ body #searchBar {
+	 grid-area: searchBar;
+}
+ 
