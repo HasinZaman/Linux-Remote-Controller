@@ -26,9 +26,14 @@ class KeyboardController(Page):
 					if letter in "abcdefghijklmnopqrstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890":
 						subprocess.call(["xdotool", "type", letter])
 						time.sleep(0.1)
+						response["response"] = True
+						return
 					elif letter == " ":
+						print("SPACE SPACE SPACE")
 						subprocess.call(["xdotool", "type", "space"])
 						time.sleep(0.1)
+						response["response"] = True
+						return
 		response["response"] = False
 		return None
 
