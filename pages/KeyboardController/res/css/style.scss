@@ -57,13 +57,19 @@
 		justify-self: self-start;
 	}
 
-	#keyboardInput
+	.ui-input-text
 	{
 		grid-area: keyboardInput;
 		width: 75%;
 		height: $homeButtonWidth;
-		font-size: xx-large;
 		justify-self: self-end;
 		align-self: center;
+		
+		input
+		{
+			font-size: xx-large;
+			color: white;
+			width: 100%;
+		}
 	}
 }

@@ -34,12 +34,16 @@
 	 width: 100%;
 	 justify-self: self-start;
 }
- .remote #keyboardInput {
+ .remote .ui-input-text {
 	 grid-area: keyboardInput;
 	 width: 75%;
 	 height: 50px;
-	 font-size: xx-large;
 	 justify-self: self-end;
 	 align-self: center;
+}
+ .remote .ui-input-text input {
+	 font-size: xx-large;
+	 color: white;
+	 width: 100%;
 }
  
