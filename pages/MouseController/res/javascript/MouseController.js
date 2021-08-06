@@ -6,14 +6,38 @@ var mouseTap = []
 var delta = [undefined, undefined]
 
 //touch pad controls
-$("#touchpad").on("touchstart",function(event){
-	mousePos[0] = [event.pageX, event.pageY]
-})
+$("#touchpad").on("vmousedown",
+	function(event)
+	{
+		mousePos[0] = [event.pageX, event.pageY]
+		console.log("touchpadStart")
+		console.log(mousePos)
+	}
+)
 
-$("#touchpad").on("touchmove",function(event){
-	mousePos[1] = mousePos[0]
-	mousePos[0] = [event.pageX, event.pageY]
-})
+$("#touchpad").on("vmousemove", function(event)
+	{
+		mousePos[1] = mousePos[0]
+		mousePos[0] = [event.pageX, event.pageY]
+		console.log("touchpadMove")
+		console.log(mousePos)
+	}
+)
+
+$("#touchpad").on("vmousemove", function(event)
+	{
+		mousePos[1] = mousePos[0]
+		mousePos[0] = [event.pageX, event.pageY]
+		console.log("touchpadMove")
+		console.log(mousePos)
+	}
+)
+
+$("#touchpad").on("vmouseup", function(event)
+	{
+		mousePos = [undefined, undefined]
+	}
+)
 
 //left click
 $("#leftClick").on("vmousedown",function(event){
@@ -67,8 +91,6 @@ function update()
 				deltaY: delta[1],
 			}
 		})
-
-		mousePos = [undefined, undefined]
 	}
 
 	setTimeout(update, 100)
