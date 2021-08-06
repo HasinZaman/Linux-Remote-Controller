@@ -2,10 +2,15 @@
 	 display: grid;
 	 grid-template-columns: 50px calc(50% - 50px) 50%;
 	 grid-template-rows: 50px calc(85% - 50px) 15%;
-	 grid-template-areas: "menu . ." "touchpad touchpad touchpad" "leftClick leftClick rightClick";
+	 grid-template-areas: "menu sensitivity sensitivity" "touchpad touchpad touchpad" "leftClick leftClick rightClick";
 }
  .remote #menu {
 	 grid-area: menu;
+}
+ .remote #sensitivity {
+	 grid-area: sensitivity;
+	 width: 100%;
+	 height: 100%;
 }
  .remote #touchpad {
 	 grid-area: touchpad;

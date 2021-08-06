@@ -9,13 +9,21 @@
 	$buttonHeights: 15%;
 	grid-template-rows: $homeButtonWidth calc(#{100%-$buttonHeights} - #{$homeButtonWidth}) $buttonHeights;
 	grid-template-areas:
-		"menu . ."
+		"menu sensitivity sensitivity"
 		"touchpad touchpad touchpad"
 		"leftClick leftClick rightClick";
 
 	#menu
 	{
 		grid-area: menu;
+	}
+
+	#sensitivity
+	{
+		grid-area: sensitivity;
+
+		width: 100%;
+		height: 100%;
 	}
 
 	#touchpad
