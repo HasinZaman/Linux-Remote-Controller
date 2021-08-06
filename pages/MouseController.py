@@ -9,6 +9,7 @@ class MouseController(Page):
 		constructor initializes MouseController
 		'''
 		self.name = "MouseController"
+		self.mouseDown = [False, False]
 		
 	def action(self, data, response):
 		'''
@@ -19,12 +20,29 @@ class MouseController(Page):
 		'''
 		if self.validActionSource(data["page"]):
 			if data["action"] == "buttonPress":
-				print(data["button"])
+				if not self.mouseDown[0] and not self.mouseDown[1]:
+					if data["button"] == "leftDown":
+						subprocess.call(["xdotool", "mousedown", "1"])
+						self.mouseDown = True
+					elif data["button"] == "rightUp":
+						subprocess.call(["xdotool", "mousedown", "3"])
+						self.mouseDown = True
+
+				elif self.mouseDown[0] and not self.mouseDown[1]:
+					if data["button"] == "leftUp":
+						subprocess.call(["xdotool", "mouseup", "1"])
+						self.mouseDown[0] = False
+
+				elif not self.mouseDown[1] and self.mouseDown[1]:
+					if data["button"] == "rightDown":
+						subprocess.call(["xdotool", "mouseup", "3"])
+						self.mouseDown[1] = False
+				else:
+					print("invalid state")
 				response["response"] = True
 				return
 			elif data["action"] == "move":
-				print(data["deltaX"])
-				print(data["deltaY"])
+				subprocess.call(["xdotool", "mousemove_relative", data["deltaX"], data["deltaY"]])
 				response["response"] = True
 
 page = MouseController()	
