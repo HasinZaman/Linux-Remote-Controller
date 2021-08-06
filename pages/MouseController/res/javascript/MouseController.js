@@ -72,7 +72,7 @@ function update()
 		{
 			delta[i1] = mousePos[1][i1] - mousePos[0][i1]
 		}
-		
+
 		$.ajax
 		({
 			type:"POST",
@@ -80,7 +80,7 @@ function update()
 			{
 				page:"MouseController",
 				action: "move",
-				deltaX: delta[0],
+				deltaX: delta[0] * -1,
 				deltaY: delta[1],
 			}
 		})
