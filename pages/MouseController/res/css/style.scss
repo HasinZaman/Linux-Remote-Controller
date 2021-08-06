@@ -1,0 +1,33 @@
+.remote
+{
+	display: grid;
+
+	$homeButtonWidth: 50px;
+
+	grid-template-columns: $homeButtonWidth calc(#{50%} - #{$homeButtonWidth}) 50%;
+	grid-template-rows: $homeButtonWidth calc(#{75%} - #{$homeButtonWidth}) 25%;
+	grid-template-areas:
+		"menu . ."
+		"touchpad touchpad touchpad"
+		"leftClick leftClick rightClick";
+
+	#menu
+	{
+		grid-area: menu;
+	}
+
+	#touchpad
+	{
+		grid-area: touchpad;
+	}
+
+	#leftClick
+	{
+		grid-area: leftClick;
+	}
+
+	#rightClick
+	{
+		grid-area: rightClick;
+	}
+}
