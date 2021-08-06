@@ -6,8 +6,6 @@ var mouseTap = []
 
 var delta = [undefined, undefined]
 
-console.log(localStorage['MouseController'])
-
 var sensitivity = "1"
 
 if (localStorage['MouseController'] !== "1" && localStorage['MouseController'] !== undefined)
@@ -16,6 +14,7 @@ if (localStorage['MouseController'] !== "1" && localStorage['MouseController'] !
 }
 
 sensitivity = parseInt(sensitivity)
+$('#sensitivity input').val(sensitivity)
 
 $('#sensitivity input').on('input propertychange', 
 	function()
