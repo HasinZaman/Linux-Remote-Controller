@@ -6,44 +6,67 @@ var mouseTap = []
 var delta = [undefined, undefined]
 
 //touch pad controls
-$("#touchpad").on("vmousedown",function(event){
+$("#touchpad").on("touchstart",function(event){
 	mousePos[0] = [event.pageX, event.pageY]
 })
 
-$("#touchpad").on("vmouseup",function(event){
-	mousePos[1] = [event.pageX, event.pageY]
+$("#touchpad").on("touchmove",function(event){
+	mousePos[1] = mousePos[0]
+	mousePos[0] = [event.pageX, event.pageY]
 })
 
 //left click
 $("#leftClick").on("vmousedown",function(event){
-	console.log("left click down")
+	buttonPress("leftDown")
 })
 
 $("#leftClick").on("vmouseup",function(event){
-	console.log("left click up")
+	buttonPress("leftUp")
 })
 
 //right click
 $("#rightClick").on("vmousedown",function(event){
-	console.log("right click down")
+	buttonPress("rightUp")
 })
 
 $("#rightClick").on("vmouseup",function(event){
-	console.log("right click up")
+	buttonPress("rightDown")
 })
+
+function buttonPress(buttonName)
+{
+	$.ajax
+	({
+		type:"POST",
+		data:
+		{
+			page:"MouseController",
+			action: "buttonPress",
+			button: buttonName
+		}
+	})
+}
 
 function update()
 {
 	if(mousePos[0] != undefined && mousePos[1] != undefined)
 	{
-		console.log(mousePos)
-
 		for(var i1 = 0; i1 < 2; i1++)
 		{
 			delta[i1] = mousePos[1][i1] - mousePos[0][i1]
 		}
 
-		console.log(delta)
+		$.ajax
+		({
+			type:"POST",
+			data:
+			{
+				page:"MouseController",
+				action: "move",
+				deltaX: delta[0],
+				deltaY: delta[1],
+			}
+		})
 
 		mousePos = [undefined, undefined]
 	}
