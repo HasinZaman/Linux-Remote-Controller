@@ -6,6 +6,7 @@ import socket
 import importlib
 import sys
 import qrcode
+import PIL.ImageOps
 
 
 #importing pages
@@ -143,6 +144,7 @@ if not os.path.exists("{0}/setting.txt".format(baseDir)):
         host = input()
         file.write(host)
         img = qrcode.make("{0}:8080".format(host))
+        PIL.ImageOps.invert(img)
         img.save("{0}/res/img/serverIP.png".format(baseDir))
 else:
     #loading settings
