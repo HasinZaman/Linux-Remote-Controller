@@ -1,5 +1,6 @@
 var mouseDown = false
 
+var mouseTouch = false
 var mousePos = [undefined, undefined]
 var mouseTap = []
 
@@ -9,6 +10,7 @@ var delta = [undefined, undefined]
 $("#touchpad").on("vmousedown",
 	function(event)
 	{
+		mouseTouch = true
 		mousePos[0] = [event.pageX, event.pageY]
 		console.log("touchpadStart")
 		console.log(mousePos)
@@ -17,24 +19,19 @@ $("#touchpad").on("vmousedown",
 
 $("#touchpad").on("vmousemove", function(event)
 	{
-		mousePos[1] = mousePos[0]
-		mousePos[0] = [event.pageX, event.pageY]
-		console.log("touchpadMove")
-		console.log(mousePos)
-	}
-)
-
-$("#touchpad").on("vmousemove", function(event)
-	{
-		mousePos[1] = mousePos[0]
-		mousePos[0] = [event.pageX, event.pageY]
-		console.log("touchpadMove")
-		console.log(mousePos)
+		if(mouseTouch)
+		{
+			mousePos[1] = mousePos[0]
+			mousePos[0] = [event.pageX, event.pageY]
+			console.log("touchpadMove")
+			console.log(mousePos)
+		}	
 	}
 )
 
 $("#touchpad").on("vmouseup", function(event)
 	{
+		mouseTouch = false
 		mousePos = [undefined, undefined]
 	}
 )
