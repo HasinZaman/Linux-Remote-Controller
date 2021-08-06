@@ -88,7 +88,7 @@ function update()
 	{
 		for(var i1 = 0; i1 < 2; i1++)
 		{
-			delta[i1] = -1 * (mousePos[1][i1] - mousePos[0][i1])
+			delta[i1] = -1 * sensitivity * (mousePos[1][i1] - mousePos[0][i1])
 		}
 
 		$.ajax
