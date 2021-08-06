@@ -43,7 +43,10 @@ class MouseController(Page):
 				response["response"] = True
 				return
 			elif data["action"] == "move":
-				subprocess.call(["xdotool", "mousemove_relative", data["deltaX"], data["deltaY"]])
+				delta = [data["deltaX"], data["deltaY"]]
+
+
+				subprocess.call(["xdotool", "mousemove_relative", "--", delta[0], delta[1]])
 				response["response"] = True
 
 page = MouseController()	
