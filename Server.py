@@ -5,6 +5,8 @@ import json
 import socket
 import importlib
 import sys
+import qrcode
+
 
 #importing pages
 baseDir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/Linux-Remote-Controller"
@@ -133,7 +135,6 @@ class Server(BaseHTTPRequestHandler):
         self.wfile.write(json.dumps(response).encode())
 #setting up server
 host = None
-
 #checking if ip address is stored in setting.txt
 if not os.path.exists("{0}/setting.txt".format(baseDir)):
     #new settings
@@ -141,6 +142,8 @@ if not os.path.exists("{0}/setting.txt".format(baseDir)):
         print("Insert server IP address:")
         host = input()
         file.write(host)
+        img = qrcode.make("{0}:8080".format(host))
+        img.save("{0}/res/img/serverIP.png".format(baseDir))
 else:
     #loading settings
     print("Reading Settings")
