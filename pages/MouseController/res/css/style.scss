@@ -5,7 +5,9 @@
 	$homeButtonWidth: 50px;
 
 	grid-template-columns: $homeButtonWidth calc(#{50%} - #{$homeButtonWidth}) 50%;
-	grid-template-rows: $homeButtonWidth calc(#{75%} - #{$homeButtonWidth}) 25%;
+
+	$buttonHeights: 15%;
+	grid-template-rows: $homeButtonWidth calc(#{100%-$buttonHeights} - #{$homeButtonWidth}) $buttonHeights;
 	grid-template-areas:
 		"menu . ."
 		"touchpad touchpad touchpad"

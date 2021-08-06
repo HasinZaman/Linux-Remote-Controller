@@ -1,7 +1,7 @@
 .remote {
 	 display: grid;
 	 grid-template-columns: 50px calc(50% - 50px) 50%;
-	 grid-template-rows: 50px calc(75% - 50px) 25%;
+	 grid-template-rows: 50px calc(85% - 50px) 15%;
 	 grid-template-areas: "menu . ." "touchpad touchpad touchpad" "leftClick leftClick rightClick";
 }
  .remote #menu {
