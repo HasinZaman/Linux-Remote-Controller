@@ -1,3 +1,4 @@
 #ignore setting file
 setting.txt
 pages/__pycache__/
+serverIP.png
