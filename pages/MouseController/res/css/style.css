@@ -9,12 +9,20 @@
 }
  .remote #sensitivity {
 	 grid-area: sensitivity;
+	 display: flex;
 	 width: 100%;
 	 height: 100%;
+	 text-align: center;
+}
+ .remote #sensitivity div:first-child {
+	 display: inline;
+	 width: 10%;
+	 text-align: center;
 }
  .remote #sensitivity div {
 	 display: inline;
 	 width: 85%;
+	 height: 100%;
 	 border: none;
 }
  .remote #sensitivity div input {
