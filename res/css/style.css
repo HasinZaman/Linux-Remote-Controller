@@ -16,6 +16,18 @@ body {
 	 height: calc(100vh - 20px);
 	 margin: 10px;
 }
+ .remote #menu {
+	 background: none;
+	 outline: none;
+	 box-shadow: none;
+	 border: 2px white solid;
+	 border-radius: 100%;
+	 padding: 5px;
+}
+ .remote #menu img {
+	 width: 100%;
+	 height: 100%;
+}
  .remote button, .remote div {
 	 width: 100%;
 	 height: 100%;
