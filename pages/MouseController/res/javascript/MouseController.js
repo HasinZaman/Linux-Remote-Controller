@@ -72,7 +72,7 @@ function update()
 		{
 			delta[i1] = mousePos[1][i1] - mousePos[0][i1]
 		}
-		console.log(delta)
+		
 		$.ajax
 		({
 			type:"POST",
