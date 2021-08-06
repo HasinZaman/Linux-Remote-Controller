@@ -6,6 +6,18 @@ var mouseTap = []
 
 var delta = [undefined, undefined]
 
+var sensitivity = localStorage['MouseController'] || '1'
+
+sensitivity = parseInt(sensitivity)
+
+$('#sensitivity input').on('input propertychange', 
+	function()
+	{
+		sensitivity = parseInt($('#sensitivity input').val())
+		localStorage["MouseController"] = String(sensitivity)
+	}
+)
+
 //touch pad controls
 $("#touchpad").on("vmousedown",
 	function(event)
