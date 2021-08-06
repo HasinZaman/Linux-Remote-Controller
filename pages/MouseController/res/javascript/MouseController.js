@@ -12,8 +12,6 @@ $("#touchpad").on("vmousedown",
 	{
 		mouseTouch = true
 		mousePos[0] = [event.pageX, event.pageY]
-		console.log("touchpadStart")
-		console.log(mousePos)
 	}
 )
 
@@ -23,8 +21,6 @@ $("#touchpad").on("vmousemove", function(event)
 		{
 			mousePos[1] = mousePos[0]
 			mousePos[0] = [event.pageX, event.pageY]
-			console.log("touchpadMove")
-			console.log(mousePos)
 		}	
 	}
 )
