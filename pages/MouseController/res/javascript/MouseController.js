@@ -1,13 +1,14 @@
 var mouseDown = false
 
 var mousePos = [undefined, undefined]
+var mouseTap = []
 
 $("body").on("vmousedown",function(event){
-	mousePos[0] = event
+	mousePos[0] = [event.pageX, event.pageY]
 })
 
 $("body").on("vmouseup",function(event){
-	mousePos[1] = event
+	mousePos[1] = [event.pageX, event.pageY]
 })
 
 function update()
