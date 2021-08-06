@@ -1,0 +1,16 @@
+body {
+	 overflow-y: auto;
+}
+ .remote {
+	 display: flex;
+	 flex-direction: column;
+	 align-items: center;
+}
+ .remote button {
+	 width: 50%;
+	 height: 10vh;
+	 margin-top: 1vh;
+	 align-self: center;
+	 color: white;
+}
+ 
