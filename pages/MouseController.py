@@ -18,6 +18,10 @@ class MouseController(Page):
 			response (dictionary): dictionary of response that will be filled with output
 		'''
 		if self.validActionSource(data["page"]):
-			pass
+			if data["action"] == "buttonPress":
+				print(data["button"])
+			elif data["action"] == "move":
+				print(data["deltaX"])
+				print(data["deltaY"])
 
 page = MouseController()	
