@@ -24,10 +24,10 @@ class MouseController(Page):
 				if not self.mouseDown[0] and not self.mouseDown[1]:
 					if data["button"] == "leftDown":
 						subprocess.call(["xdotool", "mousedown", "1"])
-						self.mouseDown = True
+						self.mouseDown[0] = True
 					elif data["button"] == "rightUp":
 						subprocess.call(["xdotool", "mousedown", "3"])
-						self.mouseDown = True
+						self.mouseDown[1] = True
 
 				elif self.mouseDown[0] and not self.mouseDown[1]:
 					if data["button"] == "leftUp":
