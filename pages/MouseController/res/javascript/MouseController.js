@@ -18,4 +18,8 @@ function update()
 		console.log(mousePos)
 		mousePos = [undefined, undefined]
 	}
+
+	setTimeout(update, 100)
 }
+
+update()
