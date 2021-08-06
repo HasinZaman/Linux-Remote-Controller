@@ -6,6 +6,7 @@ import socket
 import importlib
 import sys
 import qrcode
+from PIL import Image
 import PIL.ImageOps
 
 
@@ -144,14 +145,27 @@ if not os.path.exists("{0}/setting.txt".format(baseDir)):
         host = input()
         file.write(host)
         img = qrcode.make("{0}:8080".format(host))
-        PIL.ImageOps.invert(img)
         img.save("{0}/res/img/serverIP.png".format(baseDir))
+
+        img = Image.open('your_image.png')
+        invertedImg = PIL.ImageOps.invert(img)
+
+        invertedImg.save("{0}/res/img/serverIP.png".format(baseDir))
 else:
     #loading settings
     print("Reading Settings")
     with open("{0}/setting.txt".format(baseDir),"r") as file:
         host = file.read()
         print(host)
+
+        if os.path.exists("{0}/res/img/serverIP.png".format(baseDir)):
+            img = qrcode.make("{0}:8080".format(host))
+            img.save("{0}/res/img/serverIP.png".format(baseDir))
+
+            img = Image.open('your_image.png')
+            invertedImg = PIL.ImageOps.invert(img)
+
+            invertedImg.save("{0}/res/img/serverIP.png".format(baseDir))
 
 #start server
 httpd = HTTPServer((host, 8080), Server)
