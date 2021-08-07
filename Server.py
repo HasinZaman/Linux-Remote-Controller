@@ -9,10 +9,10 @@ import qrcode
 from PIL import Image
 import PIL.ImageOps
 
-
-#importing pages
+#getting base dir
 baseDir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/Linux-Remote-Controller"
 
+#importing pages
 sys.path.append('{0}/pages'.format(baseDir))
 
 pages = []
@@ -135,11 +135,21 @@ class Server(BaseHTTPRequestHandler):
     
         self.end_headers()
         self.wfile.write(json.dumps(response).encode())
+
+
 def saveQRCode(site):
-    img = qrcode.make("{0}:8080".format(host))
+    '''
+    saveQRCode converts server link into a ip address
+
+    paramaters:
+        site (String): string that will be converted into QR code
+    '''
+    img = qrcode.make("http://{0}:8080".format(host))
     img.save("{0}/res/img/serverIP.png".format(baseDir))
+
 #setting up server
 host = None
+
 #checking if ip address is stored in setting.txt
 if not os.path.exists("{0}/setting.txt".format(baseDir)):
     #new settings
