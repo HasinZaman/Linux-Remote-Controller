@@ -4,7 +4,7 @@ import time
 
 class KeyboardController(Page):
 	'''
-	KeyboardController class updates the volume of the linux system hosting the webserver
+	KeyboardController class simulates keyboard server side
 	'''
 	def __init__(self):
 		'''
