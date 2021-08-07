@@ -138,11 +138,6 @@ class Server(BaseHTTPRequestHandler):
 def saveQRCode(site):
     img = qrcode.make("{0}:8080".format(host))
     img.save("{0}/res/img/serverIP.png".format(baseDir))
-
-    img = Image.open("{0}/res/img/serverIP.png".format(baseDir))
-    invertedImg = PIL.ImageOps.invert(img)
-
-    invertedImg.save("{0}/res/img/serverIP.png".format(baseDir))
 #setting up server
 host = None
 #checking if ip address is stored in setting.txt
@@ -152,7 +147,7 @@ if not os.path.exists("{0}/setting.txt".format(baseDir)):
         print("Insert server IP address:")
         host = input()
         file.write(host)
-        saveQRCode(host)
+        saveQRCode("http://"+host)
 else:
     #loading settings
     print("Reading Settings")
