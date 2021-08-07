@@ -5,6 +5,10 @@ import json
 import socket
 import importlib
 import sys
+import qrcode
+from PIL import Image
+import PIL.ImageOps
+
 
 #importing pages
 baseDir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/Linux-Remote-Controller"
@@ -131,9 +135,11 @@ class Server(BaseHTTPRequestHandler):
     
         self.end_headers()
         self.wfile.write(json.dumps(response).encode())
+def saveQRCode(site):
+    img = qrcode.make("{0}:8080".format(host))
+    img.save("{0}/res/img/serverIP.png".format(baseDir))
 #setting up server
 host = None
-
 #checking if ip address is stored in setting.txt
 if not os.path.exists("{0}/setting.txt".format(baseDir)):
     #new settings
@@ -141,12 +147,16 @@ if not os.path.exists("{0}/setting.txt".format(baseDir)):
         print("Insert server IP address:")
         host = input()
         file.write(host)
+        saveQRCode("http://"+host)
 else:
     #loading settings
     print("Reading Settings")
     with open("{0}/setting.txt".format(baseDir),"r") as file:
         host = file.read()
         print(host)
+
+        if not os.path.exists("{0}/res/img/serverIP.png".format(baseDir)):
+            saveQRCode(host)
 
 #start server
 httpd = HTTPServer((host, 8080), Server)
