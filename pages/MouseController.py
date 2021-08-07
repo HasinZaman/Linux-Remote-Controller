@@ -3,7 +3,7 @@ import subprocess
 
 class MouseController(Page):
 	'''
-	MouseController class updates the volume of the linux system hosting the webserver
+	MouseController class handles mouse inputs from client
 	'''
 	def __init__(self):
 		'''
