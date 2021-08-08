@@ -100,7 +100,7 @@ A HTML page should be created with the name assigned self.name. The should be fo
 
 ## 4 Ajax
 All Ajax calls should be formated as followed. The Page should be self.name instance defined in the server-side python file. The action should be the name of a method or a specific action to be done in the server-side python file.
-```
+```Javascript
 $.ajax
 ({
 	type:"POST",
