@@ -1,7 +1,7 @@
 # Linux Remote Controller
  
 ## Description
-Python application that permits devices on the local network to act as an input devices. The input devices are capable of changing volume, keyboard, and mouse by default. Other applications can be added to the Linux Remote Controller.
+A python application that permits devices on the local network to act as an input devices. The input devices are capable of changing volume, keyboard, and mouse by default. Other applications can be added to the Linux Remote Controller.
 
 # Installation 
 
@@ -18,7 +18,7 @@ sudo apt-get install xdotool
 ```
 ## 1.2 Download files
 The files can be downloaded and placed anywhere
-# 2 Run server for the first time
+# 2 Running the server for the first time
 ## 2.1 Run server.py for the First Time
 ```
 python3 Server.py
@@ -53,13 +53,13 @@ Every menu contains a QR code of the server address. Therefore, users can scan t
 All the applications that can be handled by the server are stored underneath the QR Code.
 ## 3 Applications
 ### 3.1 Mouse Controller
-The Mouse Controller is a means of controlling the mouse on the server. The Mouse Controller works as a virtual touchpad found on laptops. In which, the large square controls the movement of the mouse, and the two smaller buttons on the bottom control the left-click and right-click.
+The Mouse Controller is a means of controlling the mouse on the server. The Mouse Controller works as a virtual touchpad found on laptops. In which, the large rectangles controls the movement of the mouse, and the two smaller buttons on the bottom control the left-click and right-click.
 ### 3.2 Keyboard Controller
 The Keyboard Controller is a means of inputting letters and numbers on the server. The Keyboard Controller page has one text area and two buttons. Putting characters in the text area automatically simulates the associated keypress on the server. The enter and backspace buttons simulate enter and backspace keys.
 ### 3.3 Volume Controller
 The Volume Controller is a means of controlling volume and other media features. The Volume Controller page possesses six buttons and one volume bar. The buttons control volume up, volume down, volume mute, skip to next, skip to previous, and pause-play. A red volume bar means that the server is muted.
 # New Applications
-The Server.py file automatically adds a new application when first running. Three files need to make a new application.
+The Server.py file automatically adds a new application on start up. Three files need to make a new application.
 ## 1 Server-side Python file
 There should be a python script with the pages directory. The file needs to import Page abstract class. Followed by the declaration of a Controller class that implements the action abstract method. The action method should check if a POST call comes from the correct page. The __init__ method should declare self.name of the source page. Finally, the page should have a variable called page, which stores an instance of the created Page child class.
 ```python
